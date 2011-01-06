@@ -24,6 +24,7 @@ class GameApp
         // Initialization functions
         void InitApp(void);
         void InitializeSDL(Uint32 width, Uint32 height, Uint32 colorDepth, Uint32 flags);
+        void CreateOrthographicProjection(GLfloat width, GLfloat height);
         void InstallTimer(void);
         static Uint32 GameLoopTimer(Uint32 interval, void* param);
         
