@@ -26,12 +26,16 @@ GameApp::~GameApp(void)
 // Initialization functions
 void GameApp::InitApp(void)
 {
-    InitializeSDL();
+    Uint32 contextFlags;
+    contextFlags = SDL_OPENGL;
+    
+    // Create a 640 by 480 window with the current color depth.
+    InitializeSDL(640, 480, 0, contextFlags);
     InstallTimer();
     
 }
 
-void GameApp::InitializeSDL(void)
+void GameApp::InitializeSDL(Uint32 width, Uint32 height, Uint32 colorDepth, Uint32 flags)
 {
     int error;
     SDL_Surface* drawContext;
@@ -41,9 +45,7 @@ void GameApp::InitializeSDL(void)
     // Create a double-buffered draw context
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
                         
-    Uint32 flags;
-    flags = SDL_OPENGL;// | SDL_FULLSCREEN;
-    drawContext = SDL_SetVideoMode(640, 480, 0, flags);
+    drawContext = SDL_SetVideoMode(width, height, colorDepth, flags);    
     
     gluOrtho2D(0.0, 4.0, 0.0, 3.0);
     
