@@ -31,6 +31,7 @@ void GameApp::InitApp(void)
     
     // Create a 640 by 480 window with the current color depth.
     InitializeSDL(640, 480, 0, contextFlags);
+    CreateOrthographicProjection(4.0, 3.0);
     InstallTimer();
     
 }
@@ -47,8 +48,12 @@ void GameApp::InitializeSDL(Uint32 width, Uint32 height, Uint32 colorDepth, Uint
                         
     drawContext = SDL_SetVideoMode(width, height, colorDepth, flags);    
     
-    gluOrtho2D(0.0, 4.0, 0.0, 3.0);
-    
+}
+
+void GameApp::CreateOrthographicProjection(GLfloat width, GLfloat height)
+{
+    // I use a near plane value of -1, and a far plane value of 1, which is what works best for 2D games.
+    glOrtho(0.0, width, 0.0, height, -1.0, 1.0);
 }
 
 void GameApp::InstallTimer(void)
