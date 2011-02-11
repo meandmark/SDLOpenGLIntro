@@ -13,7 +13,6 @@
 GameApp::GameApp(void)
 {
     done = false;
-    //drawContext = NULL;
 }
 
 // Destructor
