@@ -26,7 +26,7 @@ GameApp::~GameApp(void)
 void GameApp::InitApp(void)
 {
     Uint32 contextFlags;
-    contextFlags = SDL_OPENGL;
+    contextFlags = SDL_OPENGL;  // Use SDL to create an OpenGL context.
     
     // Create a 640 by 480 window with the current color depth.
     InitializeSDL(640, 480, 0, contextFlags);
