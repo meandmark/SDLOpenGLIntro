@@ -13,9 +13,11 @@
 class GameApp
 {
     protected:
+        SDL_Window* mainWindow;
+        SDL_GLContext mainGLContext;
         SDL_TimerID timer;
         bool done;
-        
+    
     public:
         // Constructor and destructor
         GameApp (void);
