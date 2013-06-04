@@ -26,7 +26,7 @@ GameApp::~GameApp(void)
 void GameApp::InitApp(void)
 {
     Uint32 contextFlags;
-    contextFlags = SDL_OPENGL;
+    contextFlags = SDL_WINDOW_SHOWN|SDL_WINDOW_OPENGL;
     
     // Create a 640 by 480 window with the current color depth.
     InitializeSDL(640, 480, 0, contextFlags);
@@ -38,14 +38,15 @@ void GameApp::InitApp(void)
 void GameApp::InitializeSDL(Uint32 width, Uint32 height, Uint32 colorDepth, Uint32 flags)
 {
     int error;
-    SDL_Surface* drawContext;
+    //SDL_Surface* drawContext;
     
     error = SDL_Init(SDL_INIT_EVERYTHING);
     
-    // Create a double-buffered draw context
-    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+    // Create the window
+    mainWindow = SDL_CreateWindow("SDL2 OpenGL Example", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, flags);
+    mainGLContext = SDL_GL_CreateContext(mainWindow);
                         
-    drawContext = SDL_SetVideoMode(width, height, colorDepth, flags);    
+    //drawContext = SDL_SetVideoMode(width, height, colorDepth, flags);
     
 }
 
@@ -138,5 +139,5 @@ void GameApp::RenderFrame(void)
     glClear(GL_COLOR_BUFFER_BIT);
     glColor3f(0.7, 0.5, 0.8);
     glRectf(1.0, 1.0, 3.0, 2.0);
-    SDL_GL_SwapBuffers();
+    SDL_GL_SwapWindow(mainWindow);
 }
