@@ -83,6 +83,8 @@ void GameApp::Cleanup(void)
     SDL_bool success;
     success = SDL_RemoveTimer(timer);
     
+    SDL_GL_DeleteContext(mainGLContext);
+    SDL_DestroyWindow(mainWindow);
     SDL_Quit();
 }
 
