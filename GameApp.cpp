@@ -38,7 +38,6 @@ void GameApp::InitApp(void)
 void GameApp::InitializeSDL(Uint32 width, Uint32 height, Uint32 flags)
 {
     int error;
-    //SDL_Surface* drawContext;
     
     error = SDL_Init(SDL_INIT_EVERYTHING);
     
@@ -46,8 +45,6 @@ void GameApp::InitializeSDL(Uint32 width, Uint32 height, Uint32 flags)
     mainWindow = SDL_CreateWindow("SDL2 OpenGL Example", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, flags);
     mainGLContext = SDL_GL_CreateContext(mainWindow);
                         
-    //drawContext = SDL_SetVideoMode(width, height, colorDepth, flags);
-    
 }
 
 void GameApp::CreateOrthographicProjection(GLfloat width, GLfloat height)
