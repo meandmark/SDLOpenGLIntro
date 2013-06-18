@@ -18,7 +18,7 @@ GameApp::GameApp(void)
 // Destructor
 GameApp::~GameApp(void)
 {
-
+    Cleanup();
 }
 
 
