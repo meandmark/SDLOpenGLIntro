@@ -40,6 +40,8 @@ void GameApp::InitializeSDL(Uint32 width, Uint32 height, Uint32 flags)
     int error;
     
     error = SDL_Init(SDL_INIT_EVERYTHING);
+    // Turn on double buffering.
+    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
     
     // Create the window
     mainWindow = SDL_CreateWindow("SDL2 OpenGL Example", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, flags);
