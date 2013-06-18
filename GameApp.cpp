@@ -28,7 +28,7 @@ void GameApp::InitApp(void)
     Uint32 contextFlags;
     contextFlags = SDL_WINDOW_SHOWN|SDL_WINDOW_OPENGL;
     
-    // Create a 640 by 480 window with the current color depth.
+    // Create a 640 by 480 window.
     InitializeSDL(640, 480, contextFlags);
     CreateOrthographicProjection(4.0, 3.0);
     InstallTimer();
